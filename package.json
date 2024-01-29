@@ -1,0 +1,23 @@
+{
+  "name": "korean-music-awards",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sample"
+  ],
+  "files": [
+    "cli"
+  ],
+  "bin": {
+    "log-run": "bin/cli.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^11.1.0"
+  }
+}
