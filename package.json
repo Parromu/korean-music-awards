@@ -15,8 +15,16 @@
   "bin": {
     "log-run": "bin/cli.js"
   },
-  "author": "",
+  "author": {
+    "name": "hwanbinyoo",
+    "url": "https://github.com/HWANBINYOO"
+  },
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Parromu/korean-music-awards/issues",
+    "email": "dngh0825m@gmail.com"
+  },
+  "homepage": "https://github.com/cheesepaninim/lib",
   "dependencies": {
     "commander": "^11.1.0"
   }
