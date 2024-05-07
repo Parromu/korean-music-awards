@@ -5,8 +5,7 @@
   "type": "module",
   "main": "dist/index.js",
   "scripts": {
-    "build": "yarn build:tsc",
-    "build:tsc": "yarn tsc"
+    "build": "tsc"
   },
   "keywords": [
     "sample"
@@ -14,9 +13,6 @@
   "files": [
     "cli"
   ],
-  "bin": {
-    "log-run": "bin/cli.js"
-  },
   "author": {
     "name": "hwanbinyoo",
     "url": "https://github.com/HWANBINYOO"
@@ -25,7 +21,7 @@
     "import": "./dist/index.js",
     "types": "./dist/index.d.ts"
   },
-  "license": "MIT",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/Parromu/korean-music-awards/issues",
     "email": "dngh0825m@gmail.com"
