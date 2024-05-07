@@ -68,4 +68,4 @@ const getKHAData = async (url = KHAURL): Promise<KHADataType[]> => {
   }
 };
 
-module.exports = { getKHAData, getMMAData };
+export { getKHAData, getMMAData };
