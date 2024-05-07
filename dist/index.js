@@ -16,9 +16,9 @@ exports.MMAURL = "https://www.melon.com/mma/result.htm?mmaYear=2023"; //2005~202
 exports.KHAURL = "https://www.koreanhiphopawards.com/2023/2023winners.html";
 exports.AAAURL = "https://www.asiaartistawards.com/winner/2023"; //2026~2023
 exports.GDAURL = "https://www.goldendisc.co.kr/ko/history/2022"; //1995~2023
-const getMMAData = (...args_1) => __awaiter(void 0, [...args_1], void 0, function* (url = exports.MMAURL) {
+const getMMAData = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { data } = yield axios_1.default.get(url);
+        const { data } = yield axios_1.default.get(exports.MMAURL);
         const $ = cheerio_1.default.load(data);
         const body = $("li.item");
         let MMAData = [];
@@ -38,9 +38,9 @@ const getMMAData = (...args_1) => __awaiter(void 0, [...args_1], void 0, functio
     }
 });
 exports.getMMAData = getMMAData;
-const getKHAData = (...args_2) => __awaiter(void 0, [...args_2], void 0, function* (url = exports.KHAURL) {
+const getKHAData = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { data } = yield axios_1.default.get(url);
+        const { data } = yield axios_1.default.get(exports.KHAURL);
         const $ = cheerio_1.default.load(data);
         const body = $("div.div_winner");
         let KHAData = [];
