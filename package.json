@@ -4,6 +4,7 @@
   "description": "",
   "type": "module",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc"
   },
@@ -18,8 +19,8 @@
     "url": "https://github.com/HWANBINYOO"
   },
   "exports": {
-    "import": "./dist/index.js",
-    "types": "./dist/index.d.ts"
+    "types": "./dist/index.d.ts",
+    "import": "./dist/index.js"
   },
   "license": "ISC",
   "bugs": {
