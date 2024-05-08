@@ -17,15 +17,16 @@ export interface KHADataType {
   recommendationsList: string[];
 }
 
-export const MMAURL = "https://www.melon.com/mma/result.htm?mmaYear=2023"; //2005~2023
-export const KHAURL =
-  "https://www.koreanhiphopawards.com/2023/2023winners.html";
-export const AAAURL = "https://www.asiaartistawards.com/winner/2023"; //2026~2023
-export const GDAURL = "https://www.goldendisc.co.kr/ko/history/2022"; //1995~2023
+const MMAURL = (year: number) =>
+  `https://www.melon.com/mma/result.htm?mmaYear=${year}`; //2005~2023
+const KHAURL = (year: number) =>
+  `https://www.koreanhiphopawards.com/${year}/${year}winners.html`;
+const AAAURL = "https://www.asiaartistawards.com/winner/2023"; //2026~2023
+const GDAURL = "https://www.goldendisc.co.kr/ko/history/2022"; //1995~2023
 
-export const getMMAData = async (): Promise<MMADataType[]> => {
+const getMMAData = async (year: number): Promise<MMADataType[]> => {
   try {
-    const { data } = await axios.get(MMAURL);
+    const { data } = await axios.get(MMAURL(year));
     const $ = cheerio.load(data);
     const body = $("li.item");
     let MMAData: MMADataType[] = [];
@@ -43,9 +44,9 @@ export const getMMAData = async (): Promise<MMADataType[]> => {
   }
 };
 
-export const getKHAData = async (): Promise<KHADataType[]> => {
+const getKHAData = async (year: number): Promise<KHADataType[]> => {
   try {
-    const { data } = await axios.get(KHAURL);
+    const { data } = await axios.get(KHAURL(year));
     const $ = cheerio.load(data);
     const body = $("div.div_winner");
     let KHAData: KHADataType[] = [];
@@ -67,3 +68,5 @@ export const getKHAData = async (): Promise<KHADataType[]> => {
     throw e;
   }
 };
+
+export { getKHAData, getMMAData };

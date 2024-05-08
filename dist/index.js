@@ -9,16 +9,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getMMAData = exports.getKHAData = exports.GDAURL = exports.AAAURL = exports.KHAURL = exports.MMAURL = void 0;
+exports.getMMAData = exports.getKHAData = void 0;
 const axios_1 = require("axios");
 const cheerio_1 = require("cheerio");
-exports.MMAURL = "https://www.melon.com/mma/result.htm?mmaYear=2023"; //2005~2023
-exports.KHAURL = "https://www.koreanhiphopawards.com/2023/2023winners.html";
-exports.AAAURL = "https://www.asiaartistawards.com/winner/2023"; //2026~2023
-exports.GDAURL = "https://www.goldendisc.co.kr/ko/history/2022"; //1995~2023
-const getMMAData = () => __awaiter(void 0, void 0, void 0, function* () {
+const MMAURL = (year) => `https://www.melon.com/mma/result.htm?mmaYear=${year}`; //2005~2023
+const KHAURL = (year) => `https://www.koreanhiphopawards.com/${year}/${year}winners.html`;
+const AAAURL = "https://www.asiaartistawards.com/winner/2023"; //2026~2023
+const GDAURL = "https://www.goldendisc.co.kr/ko/history/2022"; //1995~2023
+const getMMAData = (year) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { data } = yield axios_1.default.get(exports.MMAURL);
+        const { data } = yield axios_1.default.get(MMAURL(year));
         const $ = cheerio_1.default.load(data);
         const body = $("li.item");
         let MMAData = [];
@@ -38,9 +38,9 @@ const getMMAData = () => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 exports.getMMAData = getMMAData;
-const getKHAData = () => __awaiter(void 0, void 0, void 0, function* () {
+const getKHAData = (year) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { data } = yield axios_1.default.get(exports.KHAURL);
+        const { data } = yield axios_1.default.get(KHAURL(year));
         const $ = cheerio_1.default.load(data);
         const body = $("div.div_winner");
         let KHAData = [];
