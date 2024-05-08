@@ -23,7 +23,7 @@ export const KHAURL =
 export const AAAURL = "https://www.asiaartistawards.com/winner/2023"; //2026~2023
 export const GDAURL = "https://www.goldendisc.co.kr/ko/history/2022"; //1995~2023
 
-const getMMAData = async (): Promise<MMADataType[]> => {
+export const getMMAData = async (): Promise<MMADataType[]> => {
   try {
     const { data } = await axios.get(MMAURL);
     const $ = cheerio.load(data);
@@ -43,7 +43,7 @@ const getMMAData = async (): Promise<MMADataType[]> => {
   }
 };
 
-const getKHAData = async (): Promise<KHADataType[]> => {
+export const getKHAData = async (): Promise<KHADataType[]> => {
   try {
     const { data } = await axios.get(KHAURL);
     const $ = cheerio.load(data);
@@ -67,5 +67,3 @@ const getKHAData = async (): Promise<KHADataType[]> => {
     throw e;
   }
 };
-
-export { getKHAData, getMMAData };
