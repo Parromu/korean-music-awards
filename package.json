@@ -1,12 +1,15 @@
 {
   "name": "korean-music-awards",
-  "version": "2.1.2",
+  "version": "2.2.1",
   "description": "",
   "type": "module",
-  "main": "dist/index.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/mjs/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc"
+    "build:cjs": "tsc --project tsconfig.cjs.json",
+    "build:esm": "tsc --project tsconfig.esm.json",
+    "build": "npm run build:cjs && npm run build:esm"
   },
   "keywords": [
     "sample"
@@ -20,8 +23,11 @@
     "url": "https://github.com/HWANBINYOO"
   },
   "exports": {
-    "types": "./dist/index.d.ts",
-    "import": "./dist/index.js"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/mjs/index.js",
+      "require": "./dist/cjs/index.js"
+    }
   },
   "license": "ISC",
   "bugs": {
