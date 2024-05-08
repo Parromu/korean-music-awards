@@ -3,13 +3,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getMMAData = exports.getKHAData = void 0;
 const axios_1 = require("axios");
 const cheerio_1 = require("cheerio");
-const MMAURL = (year) => `https://www.melon.com/mma/result.htm?mmaYear=${year}`; //2005~2023
-const KHAURL = (year) => `https://www.koreanhiphopawards.com/${year}/${year}winners.html`;
-const AAAURL = "https://www.asiaartistawards.com/winner/2023"; //2026~2023
-const GDAURL = "https://www.goldendisc.co.kr/ko/history/2022"; //1995~2023
+const url_1 = require("./utils/url");
 const getMMAData = async (year) => {
     try {
-        const { data } = await axios_1.default.get(MMAURL(year));
+        const { data } = await axios_1.default.get((0, url_1.MMAURL)(year));
         const $ = cheerio_1.default.load(data);
         const body = $("li.item");
         let MMAData = [];
@@ -30,7 +27,7 @@ const getMMAData = async (year) => {
 exports.getMMAData = getMMAData;
 const getKHAData = async (year) => {
     try {
-        const { data } = await axios_1.default.get(KHAURL(year));
+        const { data } = await axios_1.default.get((0, url_1.KHAURL)(year));
         const $ = cheerio_1.default.load(data);
         const body = $("div.div_winner");
         let KHAData = [];
