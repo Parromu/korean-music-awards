@@ -1,28 +1,7 @@
 import axios from "axios";
 import cheerio from "cheerio";
-
-export interface MMADataType {
-  category: string;
-  artist: string;
-  title: string;
-  img: string;
-}
-
-export interface KHADataType {
-  category: string;
-  artist: string;
-  title: string;
-  img: string;
-  netizenRecommendations: string;
-  recommendationsList: string[];
-}
-
-const MMAURL = (year: number) =>
-  `https://www.melon.com/mma/result.htm?mmaYear=${year}`; //2005~2023
-const KHAURL = (year: number) =>
-  `https://www.koreanhiphopawards.com/${year}/${year}winners.html`;
-const AAAURL = "https://www.asiaartistawards.com/winner/2023"; //2026~2023
-const GDAURL = "https://www.goldendisc.co.kr/ko/history/2022"; //1995~2023
+import { MMADataType, KHADataType } from "./utils/types";
+import { KHAURL, MMAURL } from "./utils/url";
 
 const getMMAData = async (year: number): Promise<MMADataType[]> => {
   try {
@@ -69,4 +48,4 @@ const getKHAData = async (year: number): Promise<KHADataType[]> => {
   }
 };
 
-export { getKHAData, getMMAData };
+export { getKHAData, getMMAData, MMADataType, KHADataType };
